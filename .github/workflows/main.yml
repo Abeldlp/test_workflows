@@ -17,9 +17,9 @@ jobs:
           echo "COMMIT_MESSAGE=$(echo ${MSG})" >> $GITHUB_ENV
 
       - name: Verify commit message 
-        uses: Abeldlp/conventional-commits@v1.0.1
+        uses: Abeldlp/conventional-commits@v1.0.2
         with:
-          github_commit: ${{env.COMMIT_MESSAGE}} 
+          github_commit: "${{env.COMMIT_MESSAGE}}"
 
 # on: [push]
 
