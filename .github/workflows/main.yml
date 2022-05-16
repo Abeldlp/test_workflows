@@ -16,11 +16,23 @@ jobs:
           MSG=$(git log --format=%B -n 1 ${{github.event.after}})
           echo "COMMIT_MESSAGE=$(echo ${MSG})" >> $GITHUB_ENV
 
-      - name: Test my action
-        uses: Abeldlp/conventional-commits@v1
+      - name: Verify commit message 
+        uses: Abeldlp/conventional-commits@v1.0.1
         with:
-          github_commit: ${{ env.COMMIT_MESSAGE }}
+          github_commit: ${{env.COMMIT_MESSAGE}} 
 
-      - name: Run command
-        run: ./test_conventional_commit.sh
-        shell: bash
+# on: [push]
+
+# jobs:
+#   custom_test:
+#     runs-on: ubuntu-latest
+#     name: Conventional Commit
+#     steps:
+#       - name: Checkout
+#         uses: actions/checkout@v2
+
+#       - name: Test my action
+#         uses: ./ 
+#         with:
+#           github_commit: "test: something refs: 42"
+
