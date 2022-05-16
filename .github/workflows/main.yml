@@ -11,6 +11,6 @@ jobs:
           echo "COMMIT_MESSAGE=$(echo ${MSG})" >> $GITHUB_ENV
 
       - name: Test my action
-        uses: Abeldlp/conventional_commits@v1
+        uses: Abeldlp/conventional-commits@v1
         with:
           github-commit: ${{ env.COMMIT_MESSAGE }}
