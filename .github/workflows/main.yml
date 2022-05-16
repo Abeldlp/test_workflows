@@ -19,21 +19,4 @@ jobs:
       - name: Verify commit message 
         uses: Abeldlp/conventional-commits@v1.0.3
         with:
-          github_commit: "${{env.COMMIT_MESSAGE}}"
-
-
-# on: [push]
-
-# jobs:
-#   custom_test:
-#     runs-on: ubuntu-latest
-#     name: Conventional Commit
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v2
-
-#       - name: Test my action
-#         uses: ./ 
-#         with:
-#           github_commit: "test: something refs: 42"
-
+          github_commit: " \"${{env.COMMIT_MESSAGE}}\""
