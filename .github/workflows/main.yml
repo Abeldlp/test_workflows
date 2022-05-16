@@ -1,0 +1,16 @@
+on: [push]
+
+jobs:
+  test_conventional_commit:
+    runs-on: ubuntu-latest
+    name: Test Conventional Commit
+    steps:
+      - name: Get Commit Message
+        run: |
+          MSG=$(git log --format=%B -n 1 ${{github.event.after}})
+          echo "COMMIT_MESSAGE=$(echo ${MSG})" >> $GITHUB_ENV
+
+      - name: Test my action
+        uses: Abeldlp/conventional_commits@v1
+        with:
+          github-commit: ${{ env.COMMIT_MESSAGE }}
