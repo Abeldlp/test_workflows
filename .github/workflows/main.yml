@@ -15,10 +15,10 @@ jobs:
         run: |
           MSG=$(git log --format=%B -n 1 ${{github.event.after}})
           echo "COMMIT_MESSAGE=$(echo ${MSG})" >> $GITHUB_ENV
-      # - name: Check conventional commit
-      #   run: npm run check_message "${{env.COMMIT_MESSAGE}}"
 
       - name: Test my action
         uses: Abeldlp/conventional-commits@v1
+        run: ./test_conventional_commit.sh
+        shell: bash
         with:
-          github_commit: "${{ env.COMMIT_MESSAGE }}"
+          github_commit: ${{ env.COMMIT_MESSAGE }}
