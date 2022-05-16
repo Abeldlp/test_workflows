@@ -18,7 +18,9 @@ jobs:
 
       - name: Test my action
         uses: Abeldlp/conventional-commits@v1
-        run: ./test_conventional_commit.sh
-        shell: bash
         with:
           github_commit: ${{ env.COMMIT_MESSAGE }}
+
+      - name: Run command
+        run: ./test_conventional_commit.sh
+        shell: bash
