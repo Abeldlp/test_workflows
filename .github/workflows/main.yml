@@ -19,4 +19,4 @@ jobs:
       - name: Verify commit message 
         uses: Abeldlp/conventional-commits@v1.0.3
         with:
-          github_commit: " \"${{env.COMMIT_MESSAGE}}\""
+          github_commit: " ${{env.COMMIT_MESSAGE}}\""
