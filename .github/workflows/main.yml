@@ -19,4 +19,4 @@ jobs:
       - name: Test my action
         uses: Abeldlp/conventional-commits@v1
         with:
-          github-commit: ${{ env.COMMIT_MESSAGE }}
+          github_commit: ${{ env.COMMIT_MESSAGE }}
